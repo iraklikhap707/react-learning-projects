@@ -7,13 +7,17 @@ import { useEffect , useState } from 'react';
 import axios from 'axios';
 
 function App() {
-   const [cart, setCart] = useState([]);
-   useEffect(() => {
-     axios.get('/api/cart-items?expand=product')
-        .then((response)=>{
-          setCart(response.data)
-        })
-   }, [])
+  const [cart, setCart] = useState([]);
+
+
+
+    useEffect(() =>{
+      const fetchAppData = async () => {
+       const response = await axios.get('/api/cart-items?expand=product')     
+          setCart(response.data);     
+      }
+      fetchAppData();
+   }, []);
  
   return (
 
