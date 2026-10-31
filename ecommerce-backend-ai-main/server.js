@@ -39,6 +39,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/reset', resetRoutes);
 app.use('/api/payment-summary', paymentSummaryRoutes);
 
+
 // Serve static files from the dist folder
 app.use(express.static(path.join(__dirname, 'dist')));
 

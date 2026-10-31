@@ -12,11 +12,12 @@ export function CheckoutPage({ cart , loadCart}){
 
     useEffect(() => {
       const fetchCheckoutData = async () => {
-        let response = await  axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+        let response =  await  axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
           setDeliveryOptions(response.data);
         
-            response = axios.get('/api/payment-summary')
+            response = await axios.get('/api/payment-summary/')
              setPaymentSummary(response.data)
+             
       }
        
       fetchCheckoutData();
